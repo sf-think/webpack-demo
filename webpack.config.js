@@ -1,17 +1,11 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const base = require('./webpack.config.base.js')
 
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
-  output: {
-    // 文字加hash是为了取消缓存，以便更新
-    filename: "[name].[hash].js",
-  },
+  ...base,
   plugins: [
-    new HtmlWebpackPlugin({
-      title: "My App",
-      template: "src/assets/test.html",
-    }),
+
   ],
   module: {
     rules: [
