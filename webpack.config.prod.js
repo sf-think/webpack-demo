@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const base = require('./webpack.config.base.js')
-
+const base = require("./webpack.config.base.js");
 
 module.exports = {
   mode: "production",
@@ -15,8 +14,10 @@ module.exports = {
       filename: "[name].[hash].css",
     }),
   ],
+
   module: {
     rules: [
+      ...base.module.rules,
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
